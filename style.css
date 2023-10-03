@@ -1,0 +1,179 @@
+body {
+    font-size: 16px;
+    font-family:Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+}
+
+.container {
+    width: 820px;
+    margin: 0 auto;
+    padding: 60px 0; 
+}
+
+.orange-bg {
+    color: #fff;
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTb4KC8vXZFaVxPCEPovHYeynt8Bfg8BNSSg&usqp=CAU);
+    background-size: cover;
+
+}
+
+.section-title {
+    text-align: center;
+    font-weight: normal;
+    font-size: 24px;
+    margin-bottom: 60px;
+    margin-top: 0;
+}
+/* section-titleの上下の余白量が不均等。h1の親要素であるcontainerクラスのpadding-top60pxで
+h1のmargin-bottomが60pxだが、h1のmargin-topも60pxついてしまっている。
+h1のmargin-tpoを消せばsection-titleの上下余白が均等になる*/
+
+.section-title::after {
+    content: attr(data-subtitle);
+    display: block;
+    font-size: 16PX;
+    color: #aaa;
+    padding-top: 10PX;
+}
+/* 下に配置したいのでサブタイトルdisplay.blockとする。文字小さめ、文字色グレー、h1との距離 */
+
+.btn {
+    display: inline-block;
+    width: 290px;
+    background: #fff;
+    color: darksalmon;
+    text-align: center;
+    text-decoration: noner;
+    padding: 8px 0;
+    border-radius: 5px;
+    opacity: 0.9px;
+}
+/* インラインブロックにしてボタンに横幅を持たせる。textdecorationをnonにし下線を消す。若干透明にする */
+
+.btn:hover {
+    opacity: 1.0;
+}
+/* ホバー時完全不透明 */
+
+
+/* ------------------------------------------------------------------------------------
+     header
+---------------------------------------------------------------------------------------*/
+
+header .container {
+    position: relative;
+}
+
+header img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* ------------------------------------------------------------------------------------
+     features 
+---------------------------------------------------------------------------------------*/
+.feature h1 {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.feature .desc {
+    width: 360px;
+}
+
+.feature:nth-of-type(odd) .desc {
+    float: right;
+    padding: 30px 0;
+}
+/* 奇数番目のクラスdesc（説明文の固まり）を右に振り分ける
+padding-bottomを入れないとテキストが画像の横に並ばず、画像の右斜め下にきて、画像の真横が空白になってしまう 
+合わせてpaddingーtopも入れてあげるとバランスが取れる。
+これがないとトップが詰まってしまって、直上のコンテンツと接近しすぎて窮屈な印象になる*/
+
+.feature:nth-of-type(even) .desc {
+    float: left;
+    padding-bottom: 30px;
+}
+/* 偶数番目は左に振り分ける */
+
+
+/* ------------------------------------------------------------------------------------
+        voice
+---------------------------------------------------------------------------------------*/
+
+.voices .flex {
+    display: flex;
+    justify-content: space-between;
+}
+/* voiceを横並びにしたいのでhtmlでvoiceの親要素を作りクラスを当てる。クラスにflexを当てる。
+要素感の余白を均等に配置したいので、justify-content: space-between */
+
+.voices {
+    background: #f8f8f8;
+}
+
+.voices .container {
+    position: relative;
+    margin: 0 auto;
+}
+
+.voice {
+    width: 250px;
+    border: 3px solid #aaa;
+    position: relative;
+    box-sizing: border-box;
+    padding: 60PX 40PX 25PX;
+}
+/* voiceの中のpadding設定の際、widthを変えたくないのでbox-sizing: border-box;にしておく
+padding上、左右、下 */
+
+.voice img {
+    border-radius: 50%;
+    border: 3 solid #333;   
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -45px;
+}
+/* img画像をvoice（四角い枠）の中で、中央寄せにしたい。
+親要素のクラスvoiceにposition: relative;を指定した上で、クラスvoiceの中のimgに position: absolute;を指定する。
+クラスvoiceの中のimgを、left: 0; right: 0;で横幅いっぱいに領域を取っ手から
+margin: 0 auto; */
+
+.voice h1 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.voices .section-title {
+    margin-bottom: 95px;
+}
+
+
+/* ------------------------------------------------------------------------------------
+        call to action
+---------------------------------------------------------------------------------------*/
+
+.call-to-action {
+    text-align: center;
+}
+
+.call-to-action .section-title {
+    margin-bottom: 15px;
+}
+
+
+/* ------------------------------------------------------------------------------------
+        footer
+---------------------------------------------------------------------------------------*/
+
+footer {
+    padding: 40px 0;
+    text-align: center;
+    color: #aaa;
+}
